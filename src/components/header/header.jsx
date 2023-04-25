@@ -18,6 +18,7 @@ const Header = () => {
 
 	const onCartIconClick = () => {
 		console.log("Header >>> onCartIconClick");
+		router.push("/cart");
 	};
 
 	const onMenuIconClick = () => {
