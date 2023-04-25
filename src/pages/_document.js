@@ -9,7 +9,7 @@ export default function Document() {
 				<NextScript />
 			</body>
 			<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" async />
-			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" async />
+			<script noModule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" async />
 		</Html>
 	);
 }
