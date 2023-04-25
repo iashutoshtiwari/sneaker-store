@@ -1,18 +1,43 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Logo from "../../assets/logo.svg";
+import Bag from "../../assets/bag.svg";
+import Menu from "../../assets/menu.svg";
 import styles from "./header.module.scss";
 import useBreakpoint from "../../utils/hooks/useBreakpoint";
 
 const Header = () => {
+	const router = useRouter();
 	const breakpoint = useBreakpoint();
 	console.log(breakpoint);
+
+	const onLogoClick = () => {
+		console.log("Header >>> onLogoClick");
+		router.push("/home");
+	};
+
+	const onCartIconClick = () => {
+		console.log("Header >>> onCartIconClick");
+	};
+
+	const onMenuIconClick = () => {
+		console.log("Header >>> onMenuIconClick");
+	};
+
 	return (
 		<div className={styles.container}>
-			<Logo height={78} width={78} />
+			<Logo className={styles.logo} onClick={onLogoClick} height={58} width={58} />
 			<div className={styles.actions}>
-				<ion-icon style={{ fontSize: "24px" }} name="heart-outline"></ion-icon>
-				<ion-icon style={{ fontSize: "24px" }} name="bag-outline"></ion-icon>
-				<ion-icon style={{ fontSize: "24px" }} name="reorder-four-outline"></ion-icon>
+				<Bag
+					onClick={onCartIconClick}
+					className={styles.icon}
+					style={{ fontSize: "24px", padding: "8px", marginRight: "8px" }}
+				/>
+				<Menu
+					onClick={onMenuIconClick}
+					className={styles.icon}
+					style={{ fontSize: "24px", padding: "8px", marginRight: "8px" }}
+				/>
 			</div>
 		</div>
 	);
