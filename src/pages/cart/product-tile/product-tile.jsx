@@ -1,9 +1,13 @@
 import React from "react";
 import styles from "./productTile.module.scss";
 import Image from "next/image";
+import useBreakpoint from "@/utils/hooks/useBreakpoint";
+import { Grid } from "@mui/material";
 
 const ProductTile = (props) => {
 	const { item, onClick } = props;
+
+	const breakpoint = useBreakpoint();
 
 	const onProductTileClick = () => {
 		console.log("ProductTile >>> onProductTileClick");
@@ -14,26 +18,22 @@ const ProductTile = (props) => {
 	};
 
 	return (
-		<div className={styles["container"]} onClick={onProductTileClick}>
-			<div className={styles["product-image-container"]}>
-				<Image
-					style={{ objectFit: "contain" }}
-					alt={item?.name}
-					height={223}
-					width={223}
-					src={item?.images[0]}
-				/>
-			</div>
-			<div className={styles["product-details-container"]}>
-				<div className={styles["product-details"]}>
-					<h3>{item?.name}</h3>
-					<p>{item?.category}</p>
+		<Grid item xs={6} sm={6} md={4} lg={3}>
+			<div className={styles["container"]} onClick={onProductTileClick}>
+				<div className={styles["product-image-container"]}>
+					<Image style={{ objectFit: "contain" }} alt={item?.name} fill src={item?.images[0]} />
 				</div>
-				<div className={styles["product-price"]}>
-					<h3>MRP: ₹ {item?.price}</h3>
+				<div className={styles["product-details-container"]}>
+					<div className={styles["product-details"]}>
+						<h3>{item?.name}</h3>
+						<p>{item?.category}</p>
+					</div>
+					<div className={styles["product-price"]}>
+						<h3>MRP: ₹ {item?.price}</h3>
+					</div>
 				</div>
 			</div>
-		</div>
+		</Grid>
 	);
 };
 
