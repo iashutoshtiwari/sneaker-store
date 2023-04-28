@@ -21,7 +21,13 @@ const ProductTile = (props) => {
 		<Grid item xs={6} sm={6} md={4} lg={3}>
 			<div className={styles["container"]} onClick={onProductTileClick}>
 				<div className={styles["product-image-container"]}>
-					<Image style={{ objectFit: "contain" }} alt={item?.name} fill src={item?.images[0]} />
+					<Image
+						sizes="(max-width: 899px) 50vw, (max-width: 1199px) 33vw, 25vw"
+						style={{ objectFit: "contain" }}
+						alt={item?.name}
+						fill
+						src={item?.images[0]}
+					/>
 				</div>
 				<div className={styles["product-details-container"]}>
 					<div className={styles["product-details"]}>
