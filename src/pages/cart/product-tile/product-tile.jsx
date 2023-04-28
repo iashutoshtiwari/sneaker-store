@@ -16,7 +16,13 @@ const ProductTile = (props) => {
 	return (
 		<div className={styles["container"]} onClick={onProductTileClick}>
 			<div className={styles["product-image-container"]}>
-				<Image style={{ objectFit: "contain" }} alt={item.name} height={223} width={223} src={item.images[0]} />
+				<Image
+					style={{ objectFit: "contain" }}
+					alt={item?.name}
+					height={223}
+					width={223}
+					src={item?.images[0]}
+				/>
 			</div>
 			<div className={styles["product-details-container"]}>
 				<div className={styles["product-details"]}>
