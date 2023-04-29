@@ -29,6 +29,7 @@ const ProductImages = () => {
 									style={{ objectFit: "contain" }}
 									alt={item?.name}
 									src={image}
+									priority
 								/>
 							</div>
 						);
