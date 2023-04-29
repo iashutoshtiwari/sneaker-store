@@ -14,9 +14,7 @@ const Home = () => {
 	const pageLoaded = useSelector((state) => state?.home?.pageLoaded ?? false);
 
 	useEffect(() => {
-		setTimeout(() => {
-			dispatch(getProductList());
-		}, 3000);
+		dispatch(getProductList());
 	});
 
 	const onProductTileClick = (item) => {

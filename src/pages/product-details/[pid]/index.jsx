@@ -14,9 +14,7 @@ const ProductDetails = () => {
 	const pageLoaded = useSelector((state) => state?.pdp?.pageLoaded ?? false);
 
 	useEffect(() => {
-		setTimeout(() => {
-			dispatch(getProductDetails(router?.query?.pid));
-		}, 3000);
+		dispatch(getProductDetails(router?.query?.pid));
 	});
 
 	return (
