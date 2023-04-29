@@ -11,12 +11,10 @@ const Home = () => {
 	const router = useRouter();
 	const dispatch = useDispatch();
 	const productList = useSelector((state) => state?.home?.list ?? []);
-	const pageLoaded = useSelector((state) => state?.home?.pageLoaded ?? false);
+	const isLoading = useSelector((state) => state?.ui?.isLoading ?? false);
 
 	useEffect(() => {
-		setTimeout(() => {
-			dispatch(getProductList());
-		}, 3000);
+		dispatch(getProductList());
 	});
 
 	const onProductTileClick = (item) => {
@@ -31,7 +29,9 @@ const Home = () => {
 
 	return (
 		<>
-			{pageLoaded ? (
+			{isLoading ? (
+				<Spinner />
+			) : (
 				<div className={styles.container}>
 					<Grid container spacing={1}>
 						{productList.map((item, index) => (
@@ -39,8 +39,6 @@ const Home = () => {
 						))}
 					</Grid>
 				</div>
-			) : (
-				<Spinner />
 			)}
 		</>
 	);
