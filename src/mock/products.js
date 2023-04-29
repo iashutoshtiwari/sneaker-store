@@ -261,7 +261,7 @@ const Products = [
 		category: "Men's Basketball Shoes",
 		price: 16295,
 		images: [
-			"https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/1c2dfd0c-cd48-46c4-829a-4b5d93f27f83/air-jordan-1-retro-high-og-shoes-Pz6fZ9.png",
+			"https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/ba98ed6b-72f7-4ba8-81a1-bb336fad67f5/air-jordan-xxxvii-low-pf-basketball-shoes-7z7ltC.png",
 			"https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/cf132716-ebc3-4bf0-897e-7e9c03490b1e/air-jordan-xxxvii-low-pf-basketball-shoes-7z7ltC.png",
 			"https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/f4ba14b3-febc-4e74-b2d6-c8d657087429/air-jordan-xxxvii-low-pf-basketball-shoes-7z7ltC.png",
 		],
