@@ -13,7 +13,7 @@ const ProductTile = (props) => {
 		console.log("ProductTile >>> onProductTileClick");
 
 		if (onClick) {
-			onClick();
+			onClick(item);
 		}
 	};
 

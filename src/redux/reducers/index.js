@@ -6,9 +6,9 @@ import checkoutReducer from "./checkout/checkoutReducer";
 import ocpReducer from "./ocp/ocpReducer";
 
 export default combineReducers({
-	homeState: homeReducer,
-	pdpState: pdpReducer,
-	cartState: cartReducer,
-	checkoutState: checkoutReducer,
-	ocpState: ocpReducer,
+	home: homeReducer,
+	pdp: pdpReducer,
+	cart: cartReducer,
+	checkout: checkoutReducer,
+	ocp: ocpReducer,
 });
