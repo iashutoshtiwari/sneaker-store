@@ -31,8 +31,11 @@ const useBreakpoint = () => {
 		if (992 <= windowSize.width && windowSize.width < 1200) {
 			setBreakPoint(breakpoints[992]);
 		}
-		if (windowSize.width >= 1200) {
+		if (1200 <= windowSize.width && windowSize.width < 1920) {
 			setBreakPoint(breakpoints[1200]);
+		}
+		if (windowSize.width >= 1920) {
+			setBreakPoint(breakpoints[1920]);
 		}
 
 		return () => window.removeEventListener("resize", handleResize);

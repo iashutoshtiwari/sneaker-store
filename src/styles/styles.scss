@@ -1,41 +1,46 @@
 // Breakpoints
 
 // Small tablets and large smartphones (landscape view)
-$screen-sm-min: 576px;
+$breakpoint_xs: 576px;
 
 // Small tablets (portrait view)
-$screen-md-min: 768px;
+$breakpoint_sm: 768px;
 
 // Tablets and small desktops
-$screen-lg-min: 992px;
+$breakpoint_md: 992px;
 
 // Large tablets and desktops
-$screen-xl-min: 1200px;
+$breakpoint_lg: 1200px;
 
-// Small devices
-@mixin sm {
-	@media (max-width: #{$screen-sm-min}) {
-		@content;
-	}
-}
+@mixin breakpoint($size) {
+	// Extra Small devices
+	@if $size==xs {
+		@media all and (min-width: 1px) and (max-width: ($breakpoint_xs - 1)) {
+			@content;
+		}
 
-// Medium devices
-@mixin md {
-	@media (max-width: #{$screen-md-min}) {
-		@content;
-	}
-}
+		//Small devices
+	} @else if $size==sm {
+		@media all and (min-width: $breakpoint_xs) and (max-width: ($breakpoint_sm - 1)) {
+			@content;
+		}
 
-// Large devices
-@mixin lg {
-	@media (max-width: #{$screen-lg-min}) {
-		@content;
-	}
-}
+		// Medium devices
+	} @else if $size==md {
+		@media all and (min-width: $breakpoint_sm) and (max-width: ($breakpoint_md - 1)) {
+			@content;
+		}
 
-// Extra large devices
-@mixin xl {
-	@media (max-width: #{$screen-xl-min}) {
-		@content;
+		// Large devices
+	} @else if $size==lg {
+		@media all and (min-width: $breakpoint_md) and (max-width: ($breakpoint_lg - 1)) {
+			@content;
+		}
+
+		// Extra Large devices
+	} @else if $size==xl {
+		@media all and (min-width: $breakpoint_lg) {
+			@content;
+		}
 	}
 }

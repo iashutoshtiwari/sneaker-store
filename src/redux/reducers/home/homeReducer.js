@@ -3,6 +3,7 @@ import { SET_PRODUCT_LIST } from "../../types";
 
 const initialState = {
 	list: [],
+	pageLoaded: false,
 };
 
 export default (state = initialState, action) => {
@@ -11,6 +12,7 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				list: action.payload,
+				pageLoaded: true,
 			};
 
 		default:

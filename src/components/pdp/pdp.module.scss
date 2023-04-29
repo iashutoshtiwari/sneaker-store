@@ -1,0 +1,28 @@
+@import "../../styles/styles.scss";
+
+.product-info-container {
+	background: white;
+	padding: 12px;
+}
+
+.product-description-container {
+	background: white;
+	padding: 12px;
+}
+
+.product-images-container {
+	background: white;
+
+	@include breakpoint(md) {
+		width: 50%;
+	}
+
+	.next-image-wrapper {
+		background: #f5f5f5;
+		display: flex;
+		justify-content: center;
+		position: relative;
+		min-height: 490px;
+		max-width: 592px;
+	}
+}
