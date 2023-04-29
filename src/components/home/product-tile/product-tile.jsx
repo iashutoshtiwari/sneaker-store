@@ -3,11 +3,14 @@ import styles from "./productTile.module.scss";
 import Image from "next/image";
 import useBreakpoint from "@/utils/hooks/useBreakpoint";
 import { Grid } from "@mui/material";
+import { formatCurrency } from "@/utils/utility";
 
 const ProductTile = (props) => {
 	const { item, onClick } = props;
 
 	const breakpoint = useBreakpoint();
+
+	const formattedPrice = formatCurrency(item?.price);
 
 	const onProductTileClick = () => {
 		console.log("ProductTile >>> onProductTileClick");
@@ -35,7 +38,7 @@ const ProductTile = (props) => {
 						<p>{item?.category}</p>
 					</div>
 					<div className={styles["product-price"]}>
-						<h3>MRP: ₹ {item?.price}</h3>
+						<h3>MRP: {formattedPrice}</h3>
 					</div>
 				</div>
 			</div>

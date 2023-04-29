@@ -25,7 +25,8 @@
 		"redux-devtools-extension": "^2.13.9",
 		"redux-thunk": "^2.4.2",
 		"sass": "^1.62.0",
-		"slick-carousel": "^1.8.1"
+		"slick-carousel": "^1.8.1",
+		"window-or-global": "^1.0.1"
 	},
 	"devDependencies": {
 		"@svgr/webpack": "^7.0.0"

@@ -3,13 +3,16 @@ import Image from "next/image";
 import React from "react";
 import { useSelector } from "react-redux";
 import styles from "../pdp.module.scss";
+import useBreakpoint from "@/utils/hooks/useBreakpoint";
 
 const ProductImages = () => {
 	const item = useSelector((state) => state?.pdp?.details);
 
+	const breakpoint = useBreakpoint();
+
 	const settings = {
 		dots: false,
-		arrows: false,
+		arrows: breakpoint === "md" || breakpoint === "lg" || breakpoint === "xl" ? true : false,
 		infinite: true,
 		speed: 500,
 		slidesToShow: 1,

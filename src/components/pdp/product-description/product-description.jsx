@@ -7,7 +7,7 @@ const ProductDescription = (props) => {
 
 	return (
 		<div className={styles["product-description-container"]}>
-			<div>{item?.description}</div>
+			<div className={styles["product-description"]}>{item?.description}</div>
 			<div>
 				<ul>
 					<li>Colour :{item?.color}</li>
