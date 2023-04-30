@@ -2,7 +2,7 @@
 import { SET_SPINNER } from "../../types";
 
 const initialState = {
-	isLoading: true,
+	isLoading: false,
 };
 
 export default (state = initialState, action) => {

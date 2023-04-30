@@ -15,7 +15,7 @@ const Home = () => {
 
 	useEffect(() => {
 		dispatch(getProductList());
-	});
+	}, [dispatch]);
 
 	const onProductTileClick = (item) => {
 		console.log("Home >>> onProductTileClick");
