@@ -10,6 +10,7 @@ const ProductImages = () => {
 
 	const breakpoint = useBreakpoint();
 
+	//Carousel settings
 	const settings = {
 		dots: false,
 		arrows: breakpoint === "md" || breakpoint === "lg" || breakpoint === "xl" ? true : false,

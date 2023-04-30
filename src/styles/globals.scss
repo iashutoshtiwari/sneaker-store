@@ -42,3 +42,24 @@ ul {
 	margin: 0;
 	padding: 0 20px;
 }
+
+.slick-arrow {
+	z-index: 1;
+	&.slick-prev {
+		margin: 0px;
+		left: 0;
+	}
+
+	&.slick-prev::before {
+		color: black;
+	}
+
+	&.slick-next {
+		margin: 0px;
+		right: 0;
+	}
+
+	&.slick-next::before {
+		color: black;
+	}
+}
