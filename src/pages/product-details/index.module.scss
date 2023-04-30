@@ -2,7 +2,15 @@
 
 .pdp-container {
 	display: flex;
-	flex-direction: row;
+	position: relative;
+}
+
+.button-wrapper {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+	margin: 24px 0;
 }
 
 .image-wrapper {

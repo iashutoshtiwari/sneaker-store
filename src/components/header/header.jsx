@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Logo from "../../assets/logo.svg";
 import Bag from "../../assets/bag.svg";
 import Menu from "../../assets/menu.svg";
 import styles from "./header.module.scss";
-import useBreakpoint from "../../utils/hooks/useBreakpoint";
+// import useBreakpoint from "../../utils/hooks/useBreakpoint";
+import Button from "../common/button/button";
+import { Drawer } from "@mui/material";
 
 const Header = () => {
 	const router = useRouter();
-	const breakpoint = useBreakpoint();
-	console.log(breakpoint);
+	// const breakpoint = useBreakpoint();
+
+	const [toggleHeaderDrawer, setToggleHeaderDrawer] = useState(false);
 
 	const onLogoClick = () => {
 		console.log("Header >>> onLogoClick");
@@ -23,6 +26,11 @@ const Header = () => {
 
 	const onMenuIconClick = () => {
 		console.log("Header >>> onMenuIconClick");
+		setToggleHeaderDrawer(!toggleHeaderDrawer);
+	};
+
+	const onDrawerClose = () => {
+		setToggleHeaderDrawer(!toggleHeaderDrawer);
 	};
 
 	return (
@@ -40,6 +48,11 @@ const Header = () => {
 					style={{ fontSize: "24px", padding: "8px", marginRight: "8px" }}
 				/>
 			</div>
+			<Drawer open={toggleHeaderDrawer} onClose={onDrawerClose} anchor="right">
+				<div className={styles["drawer-container"]}>
+					<Button width={150} height={40} buttonLabel="Sign In" />
+				</div>
+			</Drawer>
 		</div>
 	);
 };

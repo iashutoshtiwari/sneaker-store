@@ -8,6 +8,7 @@ import ProductDescription from "@/components/pdp/product-description/product-des
 import Spinner from "@/components/common/spinner/spinner";
 import useBreakpoint from "@/utils/hooks/useBreakpoint";
 import styles from "../index.module.scss";
+import Button from "@/components/common/button/button";
 
 const ProductDetails = () => {
 	const router = useRouter();
@@ -41,6 +42,9 @@ const ProductDetails = () => {
 							</div>
 						)}
 						<ProductDescription />
+						<div className={styles["button-wrapper"]}>
+							<Button buttonLabel="Add to Cart" height={62} width={342} onClick={() => {}} />
+						</div>
 					</div>
 				</div>
 			)}
