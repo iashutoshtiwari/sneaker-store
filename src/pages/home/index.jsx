@@ -19,10 +19,10 @@ const Home = () => {
 
 	const onProductTileClick = (item) => {
 		console.log("Home >>> onProductTileClick");
-		if (item.style) {
+		if (item._id) {
 			router.push({
 				pathname: "/product-details/[pid]",
-				query: { pid: item.style },
+				query: { pid: item._id },
 			});
 		}
 	};

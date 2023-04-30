@@ -14,15 +14,19 @@ const ProductDetails = () => {
 	const dispatch = useDispatch();
 	const breakpoint = useBreakpoint();
 
-	const pageLoaded = useSelector((state) => state?.pdp?.pageLoaded ?? false);
+	const isLoading = useSelector((state) => state?.ui?.isLoading ?? false);
 
 	useEffect(() => {
-		dispatch(getProductDetails(router?.query?.pid));
-	});
+		if (router?.query?.pid) {
+			dispatch(getProductDetails(router?.query?.pid));
+		}
+	}, [dispatch, router?.query?.pid]);
 
 	return (
 		<>
-			{pageLoaded ? (
+			{isLoading ? (
+				<Spinner />
+			) : (
 				<div className={styles["pdp-container"]}>
 					{(breakpoint === "md" || breakpoint === "lg" || breakpoint === "xl") && (
 						<div className={styles["image-wrapper"]}>
@@ -39,8 +43,6 @@ const ProductDetails = () => {
 						<ProductDescription />
 					</div>
 				</div>
-			) : (
-				<Spinner />
 			)}
 		</>
 	);
