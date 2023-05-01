@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { FormControl, TextField } from "@mui/material";
+import { Fade, FormControl, TextField } from "@mui/material";
 import Button from "../common/button/button";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -77,55 +77,57 @@ const LoginModal = () => {
 				aria-describedby="modal-modal-description"
 				closeAfterTransition
 			>
-				<Box sx={style}>
-					<Typography id="modal-modal-title" variant="h6" component="h2">
-						{isSignup ? `Sign up` : `Log In`}
-					</Typography>
-					<FormControl fullWidth>
-						{isSignup && (
+				<Fade in={openLoginModal}>
+					<Box sx={style}>
+						<Typography id="modal-modal-title" variant="h6" component="h2">
+							{isSignup ? `Sign up` : `Log In`}
+						</Typography>
+						<FormControl fullWidth>
+							{isSignup && (
+								<TextField
+									value={name}
+									onChange={onNameChange}
+									required
+									label="Name"
+									variant="standard"
+									margin="dense"
+								/>
+							)}
+
 							<TextField
-								value={name}
-								onChange={onNameChange}
+								value={email}
+								onChange={onEmailChange}
 								required
-								label="Name"
+								label="Email"
+								type="email"
 								variant="standard"
 								margin="dense"
 							/>
-						)}
-
-						<TextField
-							value={email}
-							onChange={onEmailChange}
-							required
-							label="Email"
-							type="email"
-							variant="standard"
-							margin="dense"
-						/>
-						<TextField
-							value={password}
-							onChange={onPasswordChange}
-							required
-							label="Password"
-							type="password"
-							autoComplete="current-password"
-							variant="standard"
-							margin="dense"
-						/>
-					</FormControl>
-					<div style={{ margin: "20px" }}>
-						<Button
-							onClick={onSubmitClick}
-							width={200}
-							height={40}
-							buttonLabel={isSignup ? "Signup" : "Login"}
-						/>
-					</div>
-					<div onClick={onSwitchMethodClick} className={styles["switch-method"]}>
-						{isSignup ? `Already a member? ` : `Not a member? `}
-						<u>Click here</u>
-					</div>
-				</Box>
+							<TextField
+								value={password}
+								onChange={onPasswordChange}
+								required
+								label="Password"
+								type="password"
+								autoComplete="current-password"
+								variant="standard"
+								margin="dense"
+							/>
+						</FormControl>
+						<div style={{ margin: "20px" }}>
+							<Button
+								onClick={onSubmitClick}
+								width={200}
+								height={40}
+								buttonLabel={isSignup ? "Signup" : "Login"}
+							/>
+						</div>
+						<div onClick={onSwitchMethodClick} className={styles["switch-method"]}>
+							{isSignup ? `Already a member? ` : `Not a member? `}
+							<u>Click here</u>
+						</div>
+					</Box>
+				</Fade>
 			</Modal>
 		</div>
 	);
