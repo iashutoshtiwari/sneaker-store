@@ -35,6 +35,7 @@ const Header = () => {
 	const onLoginClick = () => {
 		console.log("Header >>> onProfileIconClick");
 		setToggleLoginModal(true);
+		setToggleHeaderDrawer(!toggleHeaderDrawer);
 	};
 
 	const onDrawerClose = () => {
