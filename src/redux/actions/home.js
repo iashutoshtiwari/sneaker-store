@@ -43,3 +43,24 @@ export const createUser = (data) => async (dispatch) => {
 
 	console.log(response);
 };
+
+export const loginUser = (data) => async (dispatch) => {
+	const apiUrl = getApiUrl();
+	const url = apiUrl + "/users/login";
+
+	const response = await axios(url, {
+		method: "POST",
+		headers: {
+			"Access-Control-Allow-Origin": "*",
+			"Content-Type": "application/json",
+		},
+		data: JSON.stringify(data),
+	}).catch((error) => {
+		console.error("[loginUser] >> Exception:\n", error);
+	});
+
+	console.log(response);
+	localStorage.setItem("token", response?.data?.token);
+	localStorage.setItem("name", JSON.stringify(response?.data?.user?.name));
+	localStorage.setItem("email", JSON.stringify(response?.data?.user?.email));
+};

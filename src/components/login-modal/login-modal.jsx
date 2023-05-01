@@ -4,10 +4,11 @@ import Modal from "@mui/material/Modal";
 import { FormControl, TextField } from "@mui/material";
 import Button from "../common/button/button";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createUser } from "@/redux/actions/home";
+import { useDispatch, useSelector } from "react-redux";
+import { createUser, loginUser } from "@/redux/actions/home";
 
 import styles from "./login-modal.module.scss";
+import { setLoginModal } from "@/redux/actions/ui";
 
 const style = {
 	position: "absolute",
@@ -27,8 +28,8 @@ const style = {
 	p: 4,
 };
 
-const LoginModal = (props) => {
-	const { open, setOpen } = props;
+const LoginModal = () => {
+	const openLoginModal = useSelector((state) => state?.ui?.openLoginModal ?? false);
 
 	const dispatch = useDispatch();
 
@@ -53,18 +54,24 @@ const LoginModal = (props) => {
 	};
 
 	const handleClose = () => {
-		setOpen(false);
+		dispatch(setLoginModal(false));
 	};
 
 	const onSubmitClick = () => {
 		const data = { name, email, password };
-		dispatch(createUser(data));
+		if (email && password) {
+			if (isSignup && name) {
+				dispatch(createUser(data));
+			} else {
+				dispatch(loginUser(data));
+			}
+		}
 	};
 
 	return (
 		<div>
 			<Modal
-				open={open}
+				open={openLoginModal}
 				onClose={handleClose}
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"

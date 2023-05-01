@@ -9,13 +9,16 @@ import useBreakpoint from "../../utils/hooks/useBreakpoint";
 import Button from "../common/button/button";
 import { Drawer } from "@mui/material";
 import LoginModal from "../login-modal/login-modal";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoginModal, setMenuDrawer } from "@/redux/actions/ui";
 
 const Header = () => {
+	//Hooks
 	const router = useRouter();
 	const breakpoint = useBreakpoint();
+	const dispatch = useDispatch();
 
-	const [toggleHeaderDrawer, setToggleHeaderDrawer] = useState(false);
-	const [toggleLoginModal, setToggleLoginModal] = useState(false);
+	const openMenuDrawer = useSelector((state) => state?.ui?.openMenuDrawer);
 
 	const onLogoClick = () => {
 		console.log("Header >>> onLogoClick");
@@ -29,17 +32,17 @@ const Header = () => {
 
 	const onMenuIconClick = () => {
 		console.log("Header >>> onMenuIconClick");
-		setToggleHeaderDrawer(!toggleHeaderDrawer);
+		dispatch(setMenuDrawer(!openMenuDrawer));
 	};
 
 	const onLoginClick = () => {
 		console.log("Header >>> onProfileIconClick");
-		setToggleLoginModal(true);
-		setToggleHeaderDrawer(false);
+		dispatch(setLoginModal(true));
+		dispatch(setMenuDrawer(!openMenuDrawer));
 	};
 
 	const onDrawerClose = () => {
-		setToggleHeaderDrawer(!toggleHeaderDrawer);
+		dispatch(setMenuDrawer(false));
 	};
 
 	return (
@@ -66,13 +69,13 @@ const Header = () => {
 						/>
 					)}
 				</div>
-				<Drawer open={toggleHeaderDrawer} onClose={onDrawerClose} anchor="right">
+				<Drawer open={openMenuDrawer} onClose={onDrawerClose} anchor="right">
 					<div className={styles["drawer-container"]}>
 						<Button onClick={onLoginClick} width={150} height={40} buttonLabel="Sign In" />
 					</div>
 				</Drawer>
 			</div>
-			<LoginModal open={toggleLoginModal} setOpen={setToggleLoginModal} />
+			<LoginModal />
 		</>
 	);
 };

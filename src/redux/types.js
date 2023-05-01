@@ -7,5 +7,7 @@ export const SET_PRODUCT_LIST = "SET_PRODUCT_LIST";
 //Product Details
 export const SET_PRODUCT_DATA = "SET_PRODUCT_DATA";
 
-//Common
+//UI related
 export const SET_SPINNER = "SET_SPINNER";
+export const SET_MENU_DRAWER = "SET_MENU_DRAWER";
+export const SET_LOGIN_MODAL = "SET_LOGIN_MODAL";
