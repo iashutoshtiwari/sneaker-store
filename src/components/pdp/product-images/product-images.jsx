@@ -1,6 +1,5 @@
 import Carousel from "@/components/common/carousel/carousel";
 import Image from "next/image";
-import React from "react";
 import { useSelector } from "react-redux";
 import styles from "../pdp.module.scss";
 import useBreakpoint from "@/utils/hooks/useBreakpoint";

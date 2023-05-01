@@ -28,6 +28,13 @@ const Header = () => {
 		}
 	}, [router]);
 
+	useEffect(() => {
+		if (breakpoint !== "xs" || breakpoint !== "sm") {
+			dispatch(setMenuDrawer(false));
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [breakpoint]);
+
 	const openMenuDrawer = useSelector((state) => state?.ui?.openMenuDrawer);
 
 	const onLogoClick = () => {
