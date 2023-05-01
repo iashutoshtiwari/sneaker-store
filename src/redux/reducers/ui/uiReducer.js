@@ -1,10 +1,12 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { SET_LOGIN_MODAL, SET_MENU_DRAWER, SET_SPINNER } from "../../types";
+import { SET_LOGIN_MODAL, SET_MENU_DRAWER, SET_PROFILE_DETAILS, SET_SPINNER } from "../../types";
 
 const initialState = {
 	isLoading: false,
 	openMenuDrawer: false,
 	openLoginModal: false,
+	isLoggedIn: false,
+	userDetails: { name: "", email: "" },
 };
 
 export default (state = initialState, action) => {
@@ -23,6 +25,12 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				openLoginModal: action.payload,
+			};
+		case SET_PROFILE_DETAILS:
+			return {
+				...state,
+				userDetails: { name: action?.payload?.name, email: action?.payload?.email },
+				isLoggedIn: true,
 			};
 		default:
 			return state;

@@ -1,4 +1,4 @@
-import { SET_LOGIN_MODAL, SET_MENU_DRAWER, SET_SPINNER } from "../types";
+import { SET_LOGIN_MODAL, SET_MENU_DRAWER, SET_PROFILE_DETAILS, SET_SPINNER } from "../types";
 
 export const setSpinner = (value) => async (dispatch) => {
 	dispatch({
@@ -17,6 +17,13 @@ export const setMenuDrawer = (value) => async (dispatch) => {
 export const setLoginModal = (value) => async (dispatch) => {
 	dispatch({
 		type: SET_LOGIN_MODAL,
+		payload: value,
+	});
+};
+
+export const setLoginDetails = () => async (dispatch) => {
+	dispatch({
+		type: SET_PROFILE_DETAILS,
 		payload: value,
 	});
 };

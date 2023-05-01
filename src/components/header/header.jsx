@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Logo from "../../assets/logo.svg";
 import Bag from "../../assets/bag.svg";
@@ -50,11 +50,13 @@ const Header = () => {
 			<header className={styles.container}>
 				<Logo className={styles.logo} onClick={onLogoClick} height={58} width={58} />
 				<div className={styles.actions}>
-					<Bag
-						onClick={onCartIconClick}
-						className={styles.icon}
-						style={{ fontSize: "24px", padding: "8px", marginRight: "8px" }}
-					/>
+					{router?.isReady && router?.pathname !== "/cart" && (
+						<Bag
+							onClick={onCartIconClick}
+							className={styles.icon}
+							style={{ fontSize: "24px", padding: "8px", marginRight: "8px" }}
+						/>
+					)}
 					{breakpoint === "xs" || breakpoint === "sm" ? (
 						<Menu
 							onClick={onMenuIconClick}
