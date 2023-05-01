@@ -25,3 +25,21 @@ export const getProductList = () => async (dispatch) => {
 
 	dispatch(setSpinner(false));
 };
+
+export const createUser = (data) => async (dispatch) => {
+	const apiUrl = getApiUrl();
+	const url = apiUrl + "/users";
+
+	const response = await axios(url, {
+		method: "POST",
+		headers: {
+			"Access-Control-Allow-Origin": "*",
+			"Content-Type": "application/json",
+		},
+		data: JSON.stringify(data),
+	}).catch((error) => {
+		console.error("[createUser] >> Exception:\n", error);
+	});
+
+	console.log(response);
+};
