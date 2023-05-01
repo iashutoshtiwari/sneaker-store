@@ -32,13 +32,13 @@ const Header = () => {
 
 	const onMenuIconClick = () => {
 		console.log("Header >>> onMenuIconClick");
-		dispatch(setMenuDrawer(!openMenuDrawer));
+		dispatch(setMenuDrawer(true));
 	};
 
 	const onLoginClick = () => {
 		console.log("Header >>> onProfileIconClick");
 		dispatch(setLoginModal(true));
-		dispatch(setMenuDrawer(!openMenuDrawer));
+		dispatch(setMenuDrawer(false));
 	};
 
 	const onDrawerClose = () => {
@@ -47,7 +47,7 @@ const Header = () => {
 
 	return (
 		<>
-			<div className={styles.container}>
+			<header className={styles.container}>
 				<Logo className={styles.logo} onClick={onLogoClick} height={58} width={58} />
 				<div className={styles.actions}>
 					<Bag
@@ -74,7 +74,7 @@ const Header = () => {
 						<Button onClick={onLoginClick} width={150} height={40} buttonLabel="Sign In" />
 					</div>
 				</Drawer>
-			</div>
+			</header>
 			<LoginModal />
 		</>
 	);
