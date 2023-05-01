@@ -33,6 +33,7 @@ const ProductImages = () => {
 									alt={item?.name}
 									src={image}
 									priority
+									unoptimized
 								/>
 							</div>
 						);
