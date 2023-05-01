@@ -16,9 +16,9 @@
 	.product-details-container {
 		background: white;
 		padding: 5px;
+		height: 148px;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-around;
-		align-items: center;
+		justify-content: space-between;
 	}
 }

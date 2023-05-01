@@ -18,6 +18,16 @@ const Header = () => {
 	const breakpoint = useBreakpoint();
 	const dispatch = useDispatch();
 
+	const [hideCartIcon, setHideCartIcon] = useState(true);
+
+	useEffect(() => {
+		if (router?.isReady && router?.pathname === "/cart") {
+			setHideCartIcon(true);
+		} else {
+			setHideCartIcon(false);
+		}
+	}, [router]);
+
 	const openMenuDrawer = useSelector((state) => state?.ui?.openMenuDrawer);
 
 	const onLogoClick = () => {
@@ -50,7 +60,7 @@ const Header = () => {
 			<header className={styles.container}>
 				<Logo className={styles.logo} onClick={onLogoClick} height={58} width={58} />
 				<div className={styles.actions}>
-					{router?.isReady && router?.pathname !== "/cart" && (
+					{!hideCartIcon && (
 						<Bag
 							onClick={onCartIconClick}
 							className={styles.icon}
