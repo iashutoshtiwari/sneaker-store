@@ -29,7 +29,7 @@ const ProductDetails = () => {
 				<Spinner />
 			) : (
 				<div className={styles["pdp-container"]}>
-					{(breakpoint === "md" || breakpoint === "lg" || breakpoint === "xl") && (
+					{(breakpoint === "md" || breakpoint === "lg" || breakpoint === "xl" || breakpoint === "xxl") && (
 						<div className={styles["image-wrapper"]}>
 							<ProductImages />
 						</div>
