@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoginModal, setMenuDrawer } from "@/redux/actions/ui";
 
 const Header = () => {
-	//Hooks
+	//Initialize Hooks
 	const router = useRouter();
 	const breakpoint = useBreakpoint();
 	const dispatch = useDispatch();
