@@ -24,5 +24,13 @@
 		justify-content: center;
 		position: relative;
 		min-height: 490px;
+
+		@include breakpoint(xs) {
+			width: 100vw;
+		}
+
+		@include breakpoint(sm) {
+			width: 100vw;
+		}
 	}
 }

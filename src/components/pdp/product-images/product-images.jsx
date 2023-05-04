@@ -1,9 +1,9 @@
 import Carousel from "@/components/common/carousel/carousel";
 import Image from "next/image";
-import React from "react";
 import { useSelector } from "react-redux";
 import styles from "../pdp.module.scss";
 import useBreakpoint from "@/utils/hooks/useBreakpoint";
+import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 
 const ProductImages = () => {
 	const item = useSelector((state) => state?.pdp?.details);
@@ -25,8 +25,24 @@ const ProductImages = () => {
 			<Carousel settings={settings}>
 				{item.images &&
 					item.images.map((image) => {
-						return (
-							<div key={item?.id} className={styles["next-image-wrapper"]}>
+						return breakpoint === "xs" || breakpoint === "sm" ? (
+							<TransformWrapper key={item?.id} panning={{ disabled: true }}>
+								<TransformComponent>
+									<div className={styles["next-image-wrapper"]}>
+										<Image
+											sizes="100vw"
+											fill
+											style={{ objectFit: "contain" }}
+											alt={item?.name}
+											src={image}
+											priority
+											unoptimized
+										/>
+									</div>
+								</TransformComponent>
+							</TransformWrapper>
+						) : (
+							<div className={styles["next-image-wrapper"]}>
 								<Image
 									sizes="100vw"
 									fill
@@ -34,6 +50,7 @@ const ProductImages = () => {
 									alt={item?.name}
 									src={image}
 									priority
+									unoptimized
 								/>
 							</div>
 						);

@@ -9,13 +9,17 @@ const useBreakpoint = () => {
 	});
 
 	const handleResize = () => {
-		setWindowSize({
-			width: window.innerWidth,
-			height: window.innerHeight,
-		});
+		if (typeof window !== "undefined") {
+			setWindowSize({
+				width: window.innerWidth,
+				height: window.innerHeight,
+			});
+		}
 	};
 
 	useEffect(() => {
+		if (typeof window === "undefined") return;
+
 		window.addEventListener("resize", handleResize);
 		handleResize();
 
