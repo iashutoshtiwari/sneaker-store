@@ -26,7 +26,7 @@ const ProductImages = () => {
 				{item.images &&
 					item.images.map((image) => {
 						return breakpoint === "xs" || breakpoint === "sm" ? (
-							<TransformWrapper key={item?.id} panning={{ disabled: false, lockAxisX: true }}>
+							<TransformWrapper key={item?.id} panning={{ disabled: true }}>
 								<TransformComponent>
 									<div className={styles["next-image-wrapper"]}>
 										<Image
