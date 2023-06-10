@@ -9,6 +9,7 @@ const HeroBanner = () => {
   return (
     <div className={styles["container"]}>
       <Image
+        unoptimized
         src={
           "https://ik.imagekit.io/ashutoshtiwari/sneaker-store/hero-banner/air-jordan-1.jpg?updatedAt=1686387110367"
         }
