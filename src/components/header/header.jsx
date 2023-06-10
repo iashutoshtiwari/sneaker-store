@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Logo from "../../assets/logo.svg";
 import Bag from "../../assets/bag.svg";
 import Menu from "../../assets/menu.svg";
 import Profile from "../../assets/profile.svg";
@@ -65,12 +64,7 @@ const Header = () => {
   return (
     <>
       <header className={styles.container}>
-        <Logo
-          className={styles.logo}
-          onClick={onLogoClick}
-          height={58}
-          width={58}
-        />
+        <h1>Sneaker Store.</h1>
         <div className={styles.actions}>
           {!hideCartIcon && (
             <Bag

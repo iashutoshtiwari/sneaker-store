@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+//Fonts
+$font-primary: "Manrope", sans-serif;
+$font-secondary: "Inconsolata", monospace;
+$font-tertiary: "Jost";
+$font-heading: "Bebas Neue", sans-serif;
+
 // Breakpoints
 
 // Small tablets and large smartphones (landscape view)
@@ -13,34 +24,34 @@ $breakpoint_md: 992px;
 $breakpoint_lg: 1200px;
 
 @mixin breakpoint($size) {
-	// Extra Small devices
-	@if $size==xs {
-		@media all and (max-width: ($breakpoint_xs - 1)) {
-			@content;
-		}
+  // Extra Small devices
+  @if $size==xs {
+    @media all and (max-width: ($breakpoint_xs - 1)) {
+      @content;
+    }
 
-		//Small devices
-	} @else if $size==sm {
-		@media all and (min-width: $breakpoint_xs) {
-			@content;
-		}
+    //Small devices
+  } @else if $size==sm {
+    @media all and (min-width: $breakpoint_xs) {
+      @content;
+    }
 
-		// Medium devices
-	} @else if $size==md {
-		@media all and (min-width: $breakpoint_sm) {
-			@content;
-		}
+    // Medium devices
+  } @else if $size==md {
+    @media all and (min-width: $breakpoint_sm) {
+      @content;
+    }
 
-		// Large devices
-	} @else if $size==lg {
-		@media all and (min-width: $breakpoint_md) {
-			@content;
-		}
+    // Large devices
+  } @else if $size==lg {
+    @media all and (min-width: $breakpoint_md) {
+      @content;
+    }
 
-		// Extra Large devices
-	} @else if $size==xl {
-		@media all and (min-width: $breakpoint_lg) {
-			@content;
-		}
-	}
+    // Extra Large devices
+  } @else if $size==xl {
+    @media all and (min-width: $breakpoint_lg) {
+      @content;
+    }
+  }
 }
