@@ -64,7 +64,7 @@ const Header = () => {
   return (
     <>
       <header className={styles.container}>
-        <h1>Sneaker Store.</h1>
+        <h1 onClick={onLogoClick}>Sneaker Store.</h1>
         <div className={styles.actions}>
           {!hideCartIcon && (
             <Bag
