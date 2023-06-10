@@ -1,12 +1,14 @@
 import React from "react";
-import styles from "./productTile.module.scss";
+import { useSelector } from "react-redux";
 import Image from "next/image";
-import useBreakpoint from "@/utils/hooks/useBreakpoint";
 import { Grid } from "@mui/material";
 import { formatCurrency } from "@/utils/utility";
+import styles from "./productTile.module.scss";
 
 const ProductTile = (props) => {
   const { item, onClick } = props;
+
+  const mobileGrid = useSelector((state) => state?.ui?.mobileGrid ?? false);
 
   const formattedPrice = formatCurrency(item?.price);
 
@@ -19,7 +21,7 @@ const ProductTile = (props) => {
   };
 
   return (
-    <Grid item xs={6} sm={6} md={4} lg={3}>
+    <Grid item xs={mobileGrid ? 12 : 6} sm={6} md={6} lg={3}>
       <div className={styles["container"]} onClick={onProductTileClick}>
         <div className={styles["product-image-container"]}>
           <Image
