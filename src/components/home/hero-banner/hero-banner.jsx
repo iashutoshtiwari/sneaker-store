@@ -10,8 +10,9 @@ const HeroBanner = () => {
     <div className={styles["container"]}>
       <Image
         src={
-          "https://ik.imagekit.io/ashutoshtiwari/sneaker-store/hero-banner/air-force-1.webp?updatedAt=1686370834658"
+          "https://ik.imagekit.io/ashutoshtiwari/sneaker-store/hero-banner/air-jordan-1.jpg?updatedAt=1686387110367"
         }
+        quality={100}
         alt="Air Force 1 Banner"
         style={{
           objectFit:
