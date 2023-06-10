@@ -6,42 +6,50 @@ import styles from "./index.module.scss";
 import ProductTile from "../../components/home/product-tile/product-tile";
 import { getProductList } from "@/redux/actions/home";
 import Spinner from "@/components/common/spinner/spinner";
+import HeroBanner from "@/components/home/hero-banner/hero-banner";
 
 const Home = () => {
-	const router = useRouter();
-	const dispatch = useDispatch();
-	const productList = useSelector((state) => state?.home?.list ?? []);
-	const isLoading = useSelector((state) => state?.ui?.isLoading ?? false);
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const productList = useSelector((state) => state?.home?.list ?? []);
+  const isLoading = useSelector((state) => state?.ui?.isLoading ?? false);
 
-	useEffect(() => {
-		dispatch(getProductList());
-	}, [dispatch]);
+  useEffect(() => {
+    dispatch(getProductList());
+  }, [dispatch]);
 
-	const onProductTileClick = (item) => {
-		console.log("Home >>> onProductTileClick");
-		if (item._id) {
-			router.push({
-				pathname: "/product-details/[pid]",
-				query: { pid: item._id },
-			});
-		}
-	};
+  const onProductTileClick = (item) => {
+    console.log("Home >>> onProductTileClick");
+    if (item._id) {
+      router.push({
+        pathname: "/product-details/[pid]",
+        query: { pid: item._id },
+      });
+    }
+  };
 
-	return (
-		<>
-			{isLoading ? (
-				<Spinner />
-			) : (
-				<div className={styles.container}>
-					<Grid container spacing={1}>
-						{productList.map((item, index) => (
-							<ProductTile onClick={onProductTileClick} key={index} item={item} />
-						))}
-					</Grid>
-				</div>
-			)}
-		</>
-	);
+  return (
+    <>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className={styles["container"]}>
+          <HeroBanner />
+          <div className={styles["product-container"]}>
+            <Grid container spacing={1}>
+              {productList.map((item, index) => (
+                <ProductTile
+                  onClick={onProductTileClick}
+                  key={index}
+                  item={item}
+                />
+              ))}
+            </Grid>
+          </div>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default Home;
