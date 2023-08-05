@@ -45,18 +45,18 @@ const Home = () => {
         <Spinner />
       ) : (
         <div className={styles["container"]}>
-          <div>
+          {/* <div>
             <HeroBanner />
-          </div>
+          </div> */}
           <div className={styles["product-filter-wrapper"]}>
-            <div className={styles["filter-container"]}>
+            {/* <div className={styles["filter-container"]}>
               <Filter />
               {breakpoint === "xs" && (
                 <IconButton onClick={onChangeViewClick}>
                   {mobileGrid ? <GridViewOutlined /> : <ViewAgendaOutlined />}
                 </IconButton>
               )}
-            </div>
+            </div> */}
             <div className={styles["product-container"]}>
               <Grid container spacing={1}>
                 {productList.map((item, index) => (
