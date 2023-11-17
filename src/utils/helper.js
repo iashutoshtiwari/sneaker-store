@@ -1,7 +1,11 @@
 export const getApiUrl = () =>
-	//TODO: Modify this method to support environment variables
-	"https://sneaker-store-alpha.cyclic.app";
+  //TODO: Modify this method to support environment variables
+  "http://localhost:3001";
 
 export const getAuthToken = () => {
-	return localStorage.getItem("token");
+  if (typeof window !== "undefined") {
+    return localStorage.getItem("token");
+  } else {
+    return null;
+  }
 };

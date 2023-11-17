@@ -13,10 +13,13 @@
   box-sizing: border-box;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
   z-index: 5;
+  transition: top 0.3s;
 
   h1 {
     font-family: $font-heading;
     font-style: italic;
+    cursor: pointer;
+
     @include breakpoint(md) {
       font-size: 36px;
     }

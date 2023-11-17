@@ -36,6 +36,7 @@
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.0.1"
+    "@svgr/webpack": "^8.0.1",
+    "eslint-config-prettier": "^9.0.0"
   }
 }

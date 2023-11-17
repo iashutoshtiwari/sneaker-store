@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getApiUrl } from "@/utils/helper";
 import { SET_PRODUCT_LIST } from "../types";
-import { setSpinner } from "./ui";
+import { setLoginModal, setSpinner } from "./ui";
 
 export const getProductList = () => async (dispatch) => {
   const apiUrl = getApiUrl();
@@ -60,9 +60,12 @@ export const loginUser = (data) => async (dispatch) => {
   });
 
   console.log(response);
-  localStorage.setItem("token", response?.data?.token);
-  localStorage.setItem("name", JSON.stringify(response?.data?.user?.name));
-  localStorage.setItem("email", JSON.stringify(response?.data?.user?.email));
+  if (response?.status === 200) {
+    localStorage.setItem("token", response?.data?.token);
+    localStorage.setItem("name", response?.data?.user?.name);
+    localStorage.setItem("email", response?.data?.user?.email);
+    dispatch(setLoginModal(false));
+  }
 };
 
 export const sortProductList = (order) => async (dispatch) => {

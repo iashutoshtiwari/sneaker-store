@@ -10,12 +10,15 @@ import LoginModal from "../login-modal/login-modal";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoginModal, setMenuDrawer } from "@/redux/actions/ui";
 import Drawer from "../common/drawer/drawer";
+import { getUserName, isUserLoggedIn } from "@/redux/selectors/home/homeSelector";
 
 const Header = () => {
   //Initialize Hooks
   const router = useRouter();
   const breakpoint = useBreakpoint();
   const dispatch = useDispatch();
+  const loggedIn = isUserLoggedIn();
+  const name = getUserName();
 
   const [hideCartIcon, setHideCartIcon] = useState(true);
 
@@ -67,34 +70,17 @@ const Header = () => {
         <h1 onClick={onLogoClick}>Sneaker Store.</h1>
         <div className={styles.actions}>
           {!hideCartIcon && (
-            <Bag
-              onClick={onCartIconClick}
-              className={styles.icon}
-              style={{ fontSize: "24px", padding: "8px", marginRight: "8px" }}
-            />
+            <Bag onClick={onCartIconClick} className={styles.icon} style={{ fontSize: "24px", padding: "8px", marginRight: "8px" }} />
           )}
           {breakpoint === "xs" || breakpoint === "sm" ? (
-            <Menu
-              onClick={onMenuIconClick}
-              className={styles.icon}
-              style={{ fontSize: "24px", padding: "8px", marginRight: "8px" }}
-            />
+            <Menu onClick={onMenuIconClick} className={styles.icon} style={{ fontSize: "24px", padding: "8px", marginRight: "8px" }} />
           ) : (
-            <Profile
-              onClick={onLoginClick}
-              className={styles.icon}
-              style={{ fontSize: "24px", padding: "8px", marginRight: "8px" }}
-            />
+            <Profile onClick={onLoginClick} className={styles.icon} style={{ fontSize: "24px", padding: "8px", marginRight: "8px" }} />
           )}
         </div>
         <Drawer open={openMenuDrawer} onClose={onDrawerClose} anchor="right">
           <div className={styles["drawer-container"]}>
-            <Button
-              onClick={onLoginClick}
-              width={150}
-              height={40}
-              buttonLabel="Sign In"
-            />
+            {loggedIn ? <div>{`Hi! ${name}`}</div> : <Button onClick={onLoginClick} width={150} height={40} buttonLabel="Sign In" />}
           </div>
         </Drawer>
       </header>
