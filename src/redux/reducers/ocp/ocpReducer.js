@@ -1,27 +1,27 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { GET_USERS, USERS_ERROR } from "../../types";
+import { GET_USERS, USERS_ERROR } from '../../types'
 
 const initialState = {
-	users: [],
-	loading: true,
-};
+  users: [],
+  loading: true,
+}
 
 export default (state = initialState, action) => {
-	switch (action.type) {
-		case GET_USERS:
-			return {
-				...state,
-				users: action.payload,
-				loading: false,
-			};
+  switch (action.type) {
+    case GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
+        loading: false,
+      }
 
-		case USERS_ERROR:
-			return {
-				loading: false,
-				error: action.payload,
-			};
+    case USERS_ERROR:
+      return {
+        loading: false,
+        error: action.payload,
+      }
 
-		default:
-			return state;
-	}
-};
+    default:
+      return state
+  }
+}
