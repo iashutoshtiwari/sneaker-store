@@ -13,3 +13,6 @@ export const SET_MENU_DRAWER = 'SET_MENU_DRAWER'
 export const SET_LOGIN_MODAL = 'SET_LOGIN_MODAL'
 export const SET_PROFILE_DETAILS = 'SET_PROFILE_DETAILS'
 export const SET_MOBILE_GRID = 'SET_MOBILE_GRID'
+
+//Cart
+export const SET_CART = 'SET_CART'

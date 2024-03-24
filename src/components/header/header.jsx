@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setLoginModal, setMenuDrawer } from '@/redux/actions/ui'
 import Drawer from '../common/drawer/drawer'
 import { getUserName, isUserLoggedIn } from '@/redux/selectors/home/homeSelector'
+import { logoutUser } from '@/redux/actions/home'
 
 const Header = () => {
   //Initialize Hooks
@@ -46,7 +47,11 @@ const Header = () => {
 
   const onCartIconClick = () => {
     console.log('Header >>> onCartIconClick')
-    router.push('/cart')
+    if (loggedIn) {
+      router.push('/cart')
+    } else {
+      dispatch(setLoginModal(true))
+    }
   }
 
   const onMenuIconClick = () => {
@@ -55,9 +60,20 @@ const Header = () => {
   }
 
   const onLoginClick = () => {
-    console.log('Header >>> onProfileIconClick')
+    console.log('Header >>> onLoginClick')
     dispatch(setLoginModal(true))
     dispatch(setMenuDrawer(false))
+  }
+
+  const onLogoutClick = () => {
+    console.log('Header >>> onLogoutClick')
+    dispatch(logoutUser())
+    dispatch(setMenuDrawer(false))
+    setTimeout(() => {
+      if (localStorage.getItem('token') === null) {
+        router.reload()
+      }
+    }, 1000)
   }
 
   const onDrawerClose = () => {
@@ -96,7 +112,7 @@ const Header = () => {
               <div>
                 <div>{`Hi! ${name}`}</div>
                 <div>
-                  <Button width={150} height={40} buttonLabel='Log out' />
+                  <Button onClick={onLogoutClick} width={150} height={40} buttonLabel='Log out' />
                 </div>
               </div>
             ) : (

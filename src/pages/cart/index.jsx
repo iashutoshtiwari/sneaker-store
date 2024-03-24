@@ -1,13 +1,12 @@
 import React from 'react'
 import styles from './index.module.scss'
-import ConstructionIcon from '@mui/icons-material/Construction'
+import Error from 'next/error'
+import { isUserLoggedIn } from '@/redux/selectors/home/homeSelector'
 
 const Cart = () => {
-  return (
-    <div className={styles.container}>
-      <ConstructionIcon fontSize='large' />
-    </div>
-  )
+  const loggedIn = isUserLoggedIn()
+
+  return !loggedIn ? <Error statusCode={404} /> : <div className={styles.container}>Cart</div>
 }
 
 export default Cart

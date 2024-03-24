@@ -1,12 +1,12 @@
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 import { Fade, FormControl, TextField } from '@mui/material'
 import Button from '../common/button/button'
-import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createUser, loginUser } from '@/redux/actions/home'
-
 import styles from './login-modal.module.scss'
 import { setLoginModal } from '@/redux/actions/ui'
 
@@ -32,6 +32,7 @@ const LoginModal = () => {
   const openLoginModal = useSelector((state) => state?.ui?.openLoginModal ?? false)
 
   const dispatch = useDispatch()
+  const router = useRouter()
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -64,6 +65,12 @@ const LoginModal = () => {
         dispatch(createUser(data))
       } else {
         dispatch(loginUser(data))
+
+        setTimeout(() => {
+          if (localStorage.getItem('token') !== null) {
+            router.reload()
+          }
+        }, 1000)
       }
     }
   }
